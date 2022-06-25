@@ -249,6 +249,7 @@ else :
     <script src="<?php echo ASSETS_PATH ?>js/scripts.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="<?php echo URL ?>server/server_config.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
 
     <!-- CORE SCRIPTS -->
     <?php

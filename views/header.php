@@ -12,7 +12,7 @@ if (Session::get('loggedIn') == true) :
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title><?php echo dynamic_page_title($_REQUEST['url']); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="<?php echo ASSETS_PATH ?>images/icon/favicon.ico">
+        <link rel="shortcut icon" type="image/png" href="<?php echo URL ?>favicon.ico">
         <link rel="stylesheet" href="<?php echo ASSETS_PATH ?>css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo ASSETS_PATH ?>css/font-awesome.min.css">
         <link rel="stylesheet" href="<?php echo ASSETS_PATH ?>css/themify-icons.css">
@@ -60,20 +60,18 @@ if (Session::get('loggedIn') == true) :
                         <nav>
                             <ul class="metismenu" id="menu">
                                 <li class="active">
-                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Gestión de campo</span></a>
                                     <ul class="collapse">
-                                        <li class="active"><a href="index.html">ICO dashboard</a></li>
-                                        <li><a href="index2.html">Ecommerce dashboard</a></li>
-                                        <li><a href="index3.html">SEO dashboard</a></li>
+                                        <li class="active"><a href="<?php echo URL?>gestion/distritos">Mantenimiento de distritos</a></li>
+                                        <li><a href="<?php echo URL?>gestion/zonas">Mantenimiento de Zonas</a></li>
+                                        <li><a href="<?php echo URL?>gestion/manzanas">Mantenimiento de Manzanas</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Sidebar
-                                            Types
-                                        </span></a>
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Usuarios</span></a>
                                     <ul class="collapse">
-                                        <li><a href="index.html">Left Sidebar</a></li>
-                                        <li><a href="index3-horizontalmenu.html">Horizontal Sidebar</a></li>
+                                        <li><a href="<?php echo URL?>usuarios/mantenimiento">Mantenimientos Usuarios</a></li>
+                                        <li><a href="<?php echo URL?>usuarios/tipos">Tipos de Usuarios</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -184,8 +182,8 @@ if (Session::get('loggedIn') == true) :
                                 <span></span>
                             </div>
                             <div class="search-box pull-left">
-                                <form action="#">
-                                    <input type="text" name="search" placeholder="Search..." required>
+                                <form id="search">
+                                    <input type="text" name="search" placeholder="Buscar..." required>
                                     <i class="ti-search"></i>
                                 </form>
                             </div>
@@ -343,15 +341,9 @@ if (Session::get('loggedIn') == true) :
                 <!-- page title area start -->
                 <div class="page-title-area">
                     <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="breadcrumbs-area clearfix">
-                                <h4 class="page-title pull-left">Dashboard</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><span>Dashboard</span></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <?php
+                            echo dynamic_navigation($_REQUEST['url']);
+                        ?>
                         <div class="col-sm-6 clearfix">
                             <div class="user-profile pull-right">
                                 <img class="avatar user-thumb" src="<?php echo ASSETS_PATH ?>images/author/user.jpg" alt="avatar">
